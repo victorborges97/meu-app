@@ -1,7 +1,9 @@
-export default function Home() {
-  // Isso lerá do OKD em tempo de execução (Server Component)
-  const okdEnv = process.env.MINHA_CHAVE_OKD;
+import getConfig from "next/config";
 
+const { serverRuntimeConfig } = getConfig()
+
+export default function Home() {
+  const okdEnv = serverRuntimeConfig.mySecret;
   return (
     <main>
       <h1>Valor do OKD: {okdEnv || "Variável não encontrada"}</h1>

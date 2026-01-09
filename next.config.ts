@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  serverRuntimeConfig: {
+    mySecret: process.env.MINHA_CHAVE_OKD,
+  },
 };
 
 export default nextConfig;
