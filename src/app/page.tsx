@@ -1,9 +1,6 @@
-import getConfig from "next/config";
-
-const { serverRuntimeConfig } = getConfig()
-
-export default function Home() {
-  const okdEnv = serverRuntimeConfig.mySecret;
+import { urlApi } from "./(actions)/urlApi";
+export default async function Home() {
+  const okdEnv =  await urlApi();
   return (
     <main>
       <h1>Valor do OKD: {okdEnv || "Variável não encontrada"}</h1>
